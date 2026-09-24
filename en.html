@@ -170,6 +170,20 @@ footer .name{font-family:var(--inscr); color:var(--ink); letter-spacing:.05em}
   .rules{padding:1.25rem 1.25rem}
   section{padding:3rem 0}
 }
+/* Tablet: 768 px is wide enough for two columns; one wasted the page */
+@media (min-width:600px) and (max-width:820px){
+  .lines,.programs{grid-template-columns:1fr 1fr; gap:2rem 2.25rem}
+  .plans{grid-template-columns:1fr 1fr; gap:1.25rem}
+  .ways{grid-template-columns:1fr 1fr}
+}
+/* Touch: boxes and rows a finger can hit */
+.opt input{width:1.05rem; height:1.05rem}
+@media (max-width:820px){
+  .opt{padding:.32rem 0; align-items:center}
+  .opt input{width:1.2rem; height:1.2rem; margin-top:0}
+  .topbar a{padding:.45rem 0 .4rem}
+  .btn{padding:.95rem 1.5rem}
+}
 </style>
 </head>
 <body>
