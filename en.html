@@ -34,7 +34,7 @@
 <style>
 :root{
   --bg:#DDD8CD; --surface:#EFEBE3; --ink:#1E2B38; --muted:#525C67; --line:#B7AE9F;
-  --accent:#7E6127; --map:#2F4A6B; --ok:#3F6B45; --err:#9B3B2E;
+  --accent:#7E6127; --map:#2F4A6B; --ok:#3F6B45; --err:#9B3B2E; --accent-ink:#6E5420;
   --serif:"Spectral", Georgia, "Times New Roman", serif;
   --inscr:"Cinzel", "Trajan Pro", Georgia, serif;
   color-scheme:light;
@@ -61,7 +61,7 @@ a{color:inherit; text-decoration-color:var(--accent); text-underline-offset:3px}
 .topbar a{font-size:.9rem; letter-spacing:.08em; color:var(--muted); text-decoration:none;
           border-bottom:1px solid var(--accent); padding-bottom:2px}
 .topbar a:hover{color:var(--ink)}
-.motto{font-size:.82rem; letter-spacing:.16em; color:var(--accent); margin:.35rem 0 .9rem}
+.motto{font-size:.82rem; letter-spacing:.16em; color:var(--accent-ink); margin:.35rem 0 .9rem}
 .lede{font-size:1.3rem; line-height:1.5; margin:0 0 1.5rem; max-width:30rem}
 .hero .where{color:var(--muted); font-style:italic; margin:0 0 2rem}
 .btn{display:inline-block; font-family:var(--serif); font-weight:600; font-size:1.05rem; background:var(--ink); color:var(--bg); border:0; border-radius:3px; padding:.85rem 1.4rem; cursor:pointer; text-decoration:none}
@@ -102,7 +102,7 @@ p{margin:0 0 1rem}
 
 .route{list-style:none; margin:1.5rem 0 0; padding:0; counter-reset:step}
 .route li{counter-increment:step; display:grid; grid-template-columns:2.5rem 1fr; gap:1rem; padding:.9rem 0; border-bottom:1px solid var(--line)}
-.route li::before{content:counter(step); font-family:var(--inscr); font-size:1.3rem; color:var(--accent); line-height:1.4}
+.route li::before{content:counter(step); font-family:var(--inscr); font-size:1.3rem; color:var(--accent-ink); line-height:1.4}
 .route b{font-weight:600}
 
 /* Form */
