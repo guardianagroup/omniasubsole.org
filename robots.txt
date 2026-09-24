@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://omniasubsole.org/sitemap.xml
