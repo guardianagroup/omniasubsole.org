@@ -51,7 +51,7 @@
   --accent:#7A5C22; --map:#2F4A6B; --ok:#3F6B45; --err:#9B3B2E; --accent-ink:#6E5320;
 }
 *,*::before,*::after{box-sizing:inherit}
-html{scroll-padding-top:env(safe-area-inset-top,0px); scroll-behavior:smooth}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 4.25rem); scroll-behavior:smooth}
 body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--serif); font-size:1.125rem; line-height:1.65; -webkit-font-smoothing:antialiased}
 img,svg{max-width:100%}
 a{color:inherit; text-decoration-color:var(--accent); text-underline-offset:3px}
@@ -205,10 +205,11 @@ footer .name{font-family:var(--inscr); color:var(--ink); letter-spacing:.05em}
 .grupo[hidden]{display:none}
 .grupo > section:first-child{padding-top:2.5rem}
 @media (max-width:820px){
-  .topbar .inner{padding:.3rem .9rem; gap:.5rem}
-  .secnav{overflow-x:auto; flex-wrap:nowrap; scrollbar-width:none}
-  .secnav::-webkit-scrollbar{display:none}
-  .secnav button{padding:.55rem .55rem; font-size:.9rem}
+  /* every tab in sight: the bar wraps instead of hiding half of them */
+  .topbar .inner{padding:.3rem .9rem .45rem; gap:.25rem .5rem; flex-wrap:wrap; justify-content:flex-start}
+  .topbar .lang{order:-1; margin-left:auto}
+  .secnav{flex-wrap:wrap; width:100%}
+  .secnav button{padding:.4rem .5rem; font-size:.9rem}
 }
 </style>
 </head>
