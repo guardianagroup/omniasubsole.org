@@ -54,7 +54,7 @@ form.addEventListener('submit', event => {
   const message = [labels[0], '', `${labels[1]}: ${trim('name')}`, `${labels[2]}: ${trim('email')}`,
     ...(trim('location') ? [`${labels[3]}: ${trim('location')}`] : []),
     `${labels[4]}: ${interest}`, '', `${labels[5]}:`, trim('message')].join('\n');
-  document.getElementById('send-email').href = `mailto:contacto@omniasubsole.org?subject=${encodeURIComponent(labels[0])}&body=${encodeURIComponent(message)}`;
+  document.getElementById('send-email').href = `mailto:contact@omniasubsole.org?subject=${encodeURIComponent(labels[0])}&body=${encodeURIComponent(message)}`;
   document.getElementById('send-whatsapp').href = `https://wa.me/34621024973?text=${encodeURIComponent(message)}`;
   result.hidden = false;
   result.focus({ preventScroll: true });
