@@ -36,11 +36,134 @@
 <meta name="twitter:image:alt" content="Emblema de la Fundación Omnia Sub Sole: mapa polar con el paralelo 10 norte resaltado, el nombre de la Fundación y su lema, Individui pro veritate.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap"></noscript>
-<link rel="stylesheet" href="/styles.css">
+<style>
+@font-face{font-family:"Cinzel";src:url("/assets/cinzel.woff2") format("woff2");font-weight:500 600;font-style:normal;font-display:swap;unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:"Spectral";src:url("/assets/spectral-400.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:"Spectral";src:url("/assets/spectral-400-italic.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap;unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:"Spectral";src:url("/assets/spectral-500.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap;unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:"Spectral";src:url("/assets/spectral-600.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap;unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+/* Omnia Sub Sole · paleta y tipografía originales */
+@font-face{font-family:"Spectral Fallback";src:local("Georgia");font-weight:400 500;font-style:normal;size-adjust:100.1%;ascent-override:105.9%;descent-override:46%;line-gap-override:0%}
+@font-face{font-family:"Spectral Fallback";src:local("Georgia Bold"),local("Georgia-Bold");font-weight:600 700;font-style:normal;size-adjust:87.9%;ascent-override:120.6%;descent-override:52.4%;line-gap-override:0%}
+@font-face{font-family:"Spectral Fallback";src:local("Georgia Italic"),local("Georgia-Italic");font-weight:400 500;font-style:italic;size-adjust:90.3%;ascent-override:117.4%;descent-override:51%;line-gap-override:0%}
+@font-face{font-family:"Cinzel Fallback";src:local("Georgia Bold"),local("Georgia-Bold");font-weight:600 700;size-adjust:101%;ascent-override:97%;descent-override:36.6%;line-gap-override:0%}
+@font-face{font-family:"Cinzel Fallback";src:local("Georgia");font-weight:400 500;size-adjust:111.3%;ascent-override:88.1%;descent-override:33.3%;line-gap-override:0%}
+:root{--bg:#E3D5B8;--surface:#EFE6D3;--ink:#1E2B38;--muted:#4F4B42;--line:#C4B392;--accent:#7A5C22;--map:#2F4A6B;--accent-ink:#6E5320;--serif:"Spectral","Spectral Fallback",Georgia,"Times New Roman",serif;--inscr:"Cinzel","Cinzel Fallback","Trajan Pro",Georgia,serif;color-scheme:light}
+html:lang(zh){--serif:"Spectral","Spectral Fallback","Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun",serif}
+html:lang(ar){--serif:"Amiri","Noto Naskh Arabic","Sakkal Majalla","Traditional Arabic","Geeza Pro","Times New Roman",serif;font-size:109%}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:1.25rem}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:1.125rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+html:lang(zh) body,html:lang(ar) body{line-height:1.85}
+a{color:inherit;text-decoration-color:var(--accent);text-underline-offset:4px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+img,svg{max-width:100%}
+[hidden]{display:none!important}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem}
+.skip-link{position:fixed;top:-100px;inset-inline-start:1rem;z-index:100;background:var(--ink);color:var(--bg);padding:.6rem 1rem}
+.skip-link:focus{top:.7rem}
+.topbar{padding-top:env(safe-area-inset-top,0px)}
+.topbar .inner{max-width:1080px;margin:0 auto;padding:1.1rem 1.5rem 0;display:flex;justify-content:center;align-items:center}
+.lang{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.2rem .45rem;font-size:.9rem;letter-spacing:.12em}
+.lang a{color:var(--muted);padding:.3rem .15rem;line-height:1.4;text-decoration:none}
+.lang a:lang(zh),.lang a:lang(ar){letter-spacing:0}
+.lang a[aria-current="page"]{color:var(--ink);font-weight:600;border-bottom:1px solid var(--accent)}
+.lang .sep{color:var(--accent);opacity:.7}
+.hero{display:grid;grid-template-columns:1fr;justify-items:center;gap:1.6rem;padding:3rem 0 3.5rem;border-bottom:1px solid var(--line);text-align:center}
+.hero>div{width:100%;max-width:52rem}
+.hero .map{width:220px;justify-self:center;order:-1}
+.hero h1{font-family:var(--inscr);font-weight:600;font-size:clamp(2.8rem,6.5vw,5.2rem);line-height:1.12;letter-spacing:.06em;margin:0 0 .9rem}
+.motto{font-size:.875rem;letter-spacing:.16em;color:var(--accent-ink);margin:.35rem 0 .9rem}
+.lede{font-size:1.3rem;line-height:1.5;margin:0 0 1.5rem;max-width:30rem}
+.hero .lede{max-width:42rem;margin-inline:auto}
+.hero .where{color:var(--muted);font-style:italic;margin:0 auto 1.7rem;max-width:40rem}
+.hero-title{display:block;margin-bottom:.65rem;font-weight:500}
+.hero-actions{display:flex;justify-content:center;align-items:center;gap:1.25rem;flex-wrap:wrap}
+.btn{display:inline-block;font-family:var(--serif);font-weight:600;font-size:1.05rem;background:var(--ink);color:var(--bg);border:1px solid var(--ink);border-radius:3px;padding:.8rem 1.3rem;cursor:pointer;text-decoration:none;line-height:1.5}
+.btn:hover{background:var(--map);border-color:var(--map);text-decoration:none}
+.btn.secondary{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.secondary:hover{border-color:var(--ink)}
+.text-link{font-weight:500}
+.map{width:100%;aspect-ratio:1;color:var(--map);overflow:visible}
+.map text{font-family:var(--serif)}
+.map .ringlabel{font-family:var(--inscr)}
+.map .ring10{stroke:var(--accent)}
+@media(prefers-reduced-motion:no-preference){.map .ring10{stroke-dasharray:531;stroke-dashoffset:531;animation:draw 2.4s .4s ease-out forwards}.map .pin,.map .ringlabel{opacity:0;animation:fade .6s 2.6s forwards}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:1}}
+section{padding:4rem 0;border-bottom:1px solid var(--line)}
+h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.7rem,4vw,2.2rem);line-height:1.2;margin:0 0 1.25rem}
+h3{font-family:var(--serif);font-weight:600;font-size:1.25rem;line-height:1.35;margin:0 0 .65rem}
+html:lang(ar) h2,html:lang(zh) h2{line-height:1.4}
+p{margin:0 0 1rem}
+p:last-child{margin-bottom:0}
+.eyebrow{font-size:.875rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:.65rem}
+:lang(zh) .eyebrow,:lang(ar) .eyebrow,:lang(zh) .motto,:lang(ar) .motto{letter-spacing:0;text-transform:none}
+:lang(zh) .hero .where,:lang(ar) .hero .where{font-style:normal}
+.prose{max-width:44rem}
+.muted{color:var(--muted)}
+.purpose{display:grid;grid-template-columns:1.5fr 1fr;gap:3rem;align-items:start}
+.principle{background:var(--surface);border:1px solid var(--line);border-inline-start:3px solid var(--accent);padding:1.6rem 1.75rem;border-radius:3px;margin-top:.2rem}
+.principle .eyebrow{font-size:.875rem}
+.principle p{font-size:1.07rem;line-height:1.6}
+:lang(zh) .principle p,:lang(ar) .principle p{line-height:1.85}
+.sede{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:start;margin-top:2rem}
+.address{font-style:normal;color:var(--muted);margin:.75rem 0 1rem;line-height:1.5}
+.location-block+.location-block{border-top:1px solid var(--line);margin-top:1.7rem;padding-top:1.7rem}
+figure{margin:0}
+.site-photo{background:var(--surface);border:1px solid var(--line);padding:.7rem;border-radius:3px}
+.site-photo picture{display:block}
+.site-photo img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+figcaption{font-size:.95rem;line-height:1.5;color:var(--muted);padding:.9rem .25rem .25rem}
+.site-photo .caption-label{display:block;color:var(--ink);font-weight:600;margin-bottom:.2rem}
+.study-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2rem}
+.study-area{border-top:2px solid var(--ink);padding-top:1.2rem;min-width:0}
+.study-area .area-index{font-family:var(--inscr);font-size:.95rem;color:var(--accent-ink);display:block;margin-bottom:.55rem}
+.study-area h3{font-size:1.5rem;font-weight:500;margin-bottom:1.2rem}
+dl{margin:0}
+.discipline{margin-bottom:1.15rem}
+.discipline:last-child{margin-bottom:0}
+dt{font-weight:600;font-size:1.125rem}
+dd{margin:.15rem 0 0;color:var(--muted);font-size:1.075rem;line-height:1.55}
+:lang(zh) dd,:lang(ar) dd,:lang(zh) .social-topics,:lang(ar) .social-topics{line-height:1.8}
+.social-topics{padding-inline-start:1.15rem;margin:1rem 0 0;font-size:1.075rem;color:var(--muted)}
+.social-topics li{margin:.7rem 0;padding-inline-start:.1rem}
+.method{margin-top:2.4rem;padding:1.5rem 1.7rem;border:1px solid var(--line);background:var(--surface);border-radius:3px}
+.method h3{font-size:1.15rem}
+.method p{max-width:55rem;font-size:1.05rem}
+.participate{display:grid;grid-template-columns:.85fr 1.15fr;gap:3rem;margin-top:2rem;align-items:start}
+.contact-links{display:flex;flex-direction:column;align-items:flex-start;gap:.7rem;margin:1.3rem 0}
+.contact-links a{overflow-wrap:anywhere}
+.note{font-size:.95rem;color:var(--muted);line-height:1.5}
+.form-note{margin-top:1rem}
+form{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:1.8rem}
+.field{margin-bottom:1.25rem}
+label{display:block;font-weight:600;margin-bottom:.35rem}
+.optional{font-weight:400;color:var(--muted);font-size:.95rem}
+input,select,textarea{width:100%;font:inherit;font-size:1rem;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:3px;padding:.65rem .75rem;line-height:1.5}
+select{padding-inline-end:1.7rem}
+textarea{min-height:8rem;resize:vertical}
+[dir="rtl"] input[type="email"]{direction:ltr;text-align:right}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.consent{display:flex;align-items:flex-start;gap:.6rem;font-weight:400;font-size:.95rem;line-height:1.5;margin-bottom:1.3rem}
+.consent input{width:1.2rem;height:1.2rem;margin-top:.2rem;flex-shrink:0;accent-color:var(--ink)}
+.form-actions{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
+.prepared{margin-top:1.2rem;border-top:1px solid var(--line);padding-top:1.2rem}
+.prepared p{font-size:1rem;margin-bottom:.8rem}
+.prepared:focus{outline:none}
+footer{padding:2.5rem 0 3rem;color:var(--muted);font-size:.95rem}
+.footer-grid{display:flex;justify-content:space-between;gap:2rem;align-items:flex-start}
+footer .name{font-family:var(--inscr);color:var(--ink);letter-spacing:.05em;font-size:1.1rem}
+footer .name a{text-decoration:none}
+footer .latin{font-style:italic;color:var(--accent-ink);margin-top:.6rem}
+footer .footer-location{text-align:end}
+@media(max-width:900px){.purpose,.sede,.participate{gap:2rem}}
+@media(max-width:820px){.hero{gap:1.4rem;padding:2.2rem 0 3rem}.hero .map{width:200px}.purpose,.sede,.study-grid,.participate{grid-template-columns:1fr;gap:2rem}.principle{max-width:44rem}.site-photo{max-width:36rem}.study-area+.study-area{margin-top:.5rem}.footer-grid{flex-direction:column;gap:1.2rem}footer .footer-location{text-align:start}}
+@media(max-width:520px){body{font-size:1.06rem}.wrap{padding:0 1.2rem}.topbar .inner{padding:.9rem .75rem 0}.hero .map{width:175px}.hero h1{font-size:clamp(2rem,8.5vw,2.9rem);letter-spacing:.035em}.hero .lede{font-size:1.18rem}.hero-actions{gap:.9rem}.row{grid-template-columns:1fr;gap:0}section{padding:3rem 0}.principle,.method,form{padding:1.3rem}.study-grid{gap:1.8rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+</style>
 <script src="/app.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"NGO","@id":"https://omniasubsole.org/#organization","name":"Fundación Omnia Sub Sole","alternateName":"Omnia Sub Sole","url":"https://omniasubsole.org/","logo":{"@type":"ImageObject","url":"https://omniasubsole.org/logo-512.png","width":512,"height":512},"image":"https://omniasubsole.org/og-omnia-sub-sole.jpg","description":"Fundación filantrópica sin ánimo de lucro, en proceso de constitución en Cartagena de Indias (Colombia), consagrada al examen del mundo físico y al análisis del orden mundial actual.","slogan":"Individui pro veritate","email":"contact@omniasubsole.org","telephone":"+34 621 024 973","address":{"@type":"PostalAddress","streetAddress":"Torre Empresarial Prodegi, pisos 17 y 18, Bocagrande","addressLocality":"Cartagena de Indias","addressRegion":"Bolívar","addressCountry":"CO"},"foundingLocation":{"@type":"Place","name":"Cartagena de Indias, Colombia"},"knowsAbout":["Geodesia","Selenología","Física solar","Mecánica de fluidos","Orden mundial actual"]},{"@type":"WebSite","@id":"https://omniasubsole.org/#website","url":"https://omniasubsole.org/","name":"Omnia Sub Sole","inLanguage":["es","en","de","zh-Hans","ar"],"publisher":{"@id":"https://omniasubsole.org/#organization"}},{"@type":"WebPage","@id":"https://omniasubsole.org/#webpage","url":"https://omniasubsole.org/","name":"Omnia Sub Sole · Fundación filantrópica en Cartagena de Indias","description":"Fundación filantrópica en Cartagena de Indias consagrada a la geodesia, la selenología, la física solar, la mecánica de fluidos y el orden mundial actual.","inLanguage":"es","isPartOf":{"@id":"https://omniasubsole.org/#website"},"about":{"@id":"https://omniasubsole.org/#organization"},"primaryImageOfPage":"https://omniasubsole.org/og-omnia-sub-sole.jpg"}]}</script>
 </head>
