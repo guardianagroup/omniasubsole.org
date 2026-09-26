@@ -6,7 +6,7 @@
 @font-face{font-family:"Cinzel Fallback";src:local("Georgia");font-weight:400 500;size-adjust:111.3%;ascent-override:88.1%;descent-override:33.3%;line-gap-override:0%}
 :root{--bg:#E3D5B8;--surface:#EFE6D3;--ink:#1E2B38;--muted:#4F4B42;--line:#C4B392;--accent:#7A5C22;--map:#2F4A6B;--accent-ink:#6E5320;--serif:"Spectral","Spectral Fallback",Georgia,"Times New Roman",serif;--inscr:"Cinzel","Cinzel Fallback","Trajan Pro",Georgia,serif;color-scheme:light}
 html:lang(zh){--serif:"Spectral","Spectral Fallback","Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun",serif}
-html:lang(ar){--serif:"Amiri","Noto Naskh Arabic","Traditional Arabic","Geeza Pro","Times New Roman",serif;font-size:109%}
+html:lang(ar){--serif:"Amiri","Noto Naskh Arabic","Sakkal Majalla","Traditional Arabic","Geeza Pro","Times New Roman",serif;font-size:109%}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:1.25rem}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:1.125rem;line-height:1.65;-webkit-font-smoothing:antialiased}
