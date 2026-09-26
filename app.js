@@ -101,3 +101,22 @@ form.addEventListener('submit', event => {
   result.scrollIntoView({ block: 'nearest' });
 });
 form.addEventListener('input', () => { result.hidden = true; });
+
+// vista de calle: Google Maps solo se carga cuando el visitante la activa
+document.querySelectorAll('[data-sv]').forEach(link => {
+  link.addEventListener('click', event => {
+    if (event.ctrlKey || event.metaKey || event.shiftKey || event.button) return;
+    event.preventDefault();
+    const box = document.createElement('div');
+    box.className = 'sv sv-live';
+    const frame = document.createElement('iframe');
+    frame.src = link.dataset.sv;
+    frame.title = link.dataset.svTitle;
+    frame.allow = 'fullscreen; accelerometer; gyroscope';
+    frame.allowFullscreen = true;
+    frame.referrerPolicy = 'strict-origin-when-cross-origin';
+    box.appendChild(frame);
+    link.replaceWith(box);
+    frame.focus();
+  });
+});
