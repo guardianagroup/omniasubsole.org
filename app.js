@@ -2,14 +2,6 @@
 
 const root = document.documentElement;
 
-document.querySelectorAll('.lang a').forEach(link => {
-  link.addEventListener('click', () => {
-    const url = new URL(link.href);
-    url.hash = window.location.hash;
-    link.href = url.href;
-  });
-});
-
 const LABELS = {
   "es": [
     "Solicitud de participación · Omnia Sub Sole",
@@ -35,6 +27,14 @@ const LABELS = {
     "Interessengebiet",
     "Darlegung"
   ],
+  "ru": [
+    "Заявка на участие · Omnia Sub Sole",
+    "Имя и фамилия",
+    "Электронная почта",
+    "Город / страна",
+    "Область интересов",
+    "Изложение"
+  ],
   "zh": [
     "参与申请 · Omnia Sub Sole",
     "姓名",
@@ -42,6 +42,14 @@ const LABELS = {
     "城市／国家",
     "关注领域",
     "说明"
+  ],
+  "ja": [
+    "参加申込 · Omnia Sub Sole",
+    "氏名",
+    "メールアドレス",
+    "都市／国",
+    "関心分野",
+    "内容"
   ],
   "ar": [
     "طلب مشاركة · Omnia Sub Sole",
