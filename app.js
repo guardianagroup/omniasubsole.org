@@ -3,7 +3,7 @@
 const root = document.documentElement;
 const LABELS = {
   "es": [
-    "Solicitud de dossier informativo · Omnia Sub Sole",
+    "Solicitud del dossier informativo · Omnia Sub Sole",
     "Nombre y apellidos",
     "Correo electrónico",
     "Ciudad / país",
@@ -14,8 +14,8 @@ const LABELS = {
   "en": [
     "Request for the information dossier · Omnia Sub Sole",
     "Full name",
-    "Email",
-    "City / country",
+    "Email address",
+    "City and country",
     "Language of the dossier",
     "Field of interest",
     "Remarks"
@@ -23,8 +23,8 @@ const LABELS = {
   "de": [
     "Anforderung des Informationsdossiers · Omnia Sub Sole",
     "Vor- und Nachname",
-    "E-Mail",
-    "Stadt / Land",
+    "E-Mail-Adresse",
+    "Stadt und Land",
     "Sprache des Dossiers",
     "Interessengebiet",
     "Anmerkungen"
@@ -42,7 +42,7 @@ const LABELS = {
     "信息手册索取申请 · Omnia Sub Sole",
     "姓名",
     "电子邮箱",
-    "城市／国家",
+    "城市及国家",
     "手册语言",
     "关注领域",
     "备注"
@@ -51,7 +51,7 @@ const LABELS = {
     "案内資料の請求 · Omnia Sub Sole",
     "氏名",
     "メールアドレス",
-    "都市／国",
+    "都市・国",
     "資料の言語",
     "関心分野",
     "備考"
