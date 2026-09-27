@@ -6,7 +6,7 @@ const LABELS = {
     "Solicitud del dossier informativo · Omnia Sub Sole",
     "Nombre y apellidos",
     "Correo electrónico",
-    "Ciudad / país",
+    "Ciudad y país",
     "Idioma del dossier",
     "Ámbito de interés",
     "Observaciones"
@@ -32,7 +32,7 @@ const LABELS = {
   "ru": [
     "Запрос информационного досье · Omnia Sub Sole",
     "Имя и фамилия",
-    "Электронная почта",
+    "Адрес электронной почты",
     "Город / страна",
     "Язык досье",
     "Область интересов",
