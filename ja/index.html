@@ -217,6 +217,7 @@ html:lang(ar) footer .footer-location{text-align:start}
 @media(prefers-reduced-motion:reduce){html,.gal-track{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 
 /* Música de fondo: botón fijo arriba a la derecha (también en árabe) */.music-btn{position:fixed;top:max(.7rem,env(safe-area-inset-top,0px));right:.8rem;z-index:50;width:2.5rem;height:2.5rem;display:flex;align-items:center;justify-content:center;padding:0;border:1px solid var(--line);border-radius:50%;background:rgba(239,230,211,.92);color:var(--ink);cursor:pointer;-webkit-tap-highlight-color:transparent;box-shadow:0 1px 3px rgba(30,43,56,.08)}.music-btn:hover{border-color:var(--ink)}.music-btn svg{width:1.15rem;height:1.15rem}.music-btn .i-off,.music-btn.is-off .i-on{display:none}.music-btn.is-off .i-off{display:block}.music-btn.is-off{color:var(--muted)}@media(max-width:470px){.topbar .inner{padding-top:3.5rem}}@media print{.music-btn{display:none}}
+html{caret-color:transparent}input,textarea,select,[contenteditable]{caret-color:auto}
 </style>
 <script src="/app.js" defer></script>
 <script src="/musica.js" defer></script>
