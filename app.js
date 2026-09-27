@@ -20,6 +20,15 @@ const LABELS = {
     "Field of interest",
     "Remarks"
   ],
+  "pt": [
+    "Pedido do dossiê informativo · Omnia Sub Sole",
+    "Nome completo",
+    "Correio eletrónico",
+    "Cidade e país",
+    "Idioma do dossiê",
+    "Área de interesse",
+    "Observações"
+  ],
   "de": [
     "Anforderung des Informationsdossiers · Omnia Sub Sole",
     "Vor- und Nachname",
