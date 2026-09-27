@@ -1,7 +1,7 @@
 /* Omnia Sub Sole · música de fondo generada en el navegador (Web Audio).
-   Sin grabaciones: bordón grave, coro lejano y campana de claustro.
-   Empieza con la primera interacción del visitante (norma de los navegadores)
-   y se silencia con el botón fijo de la esquina superior derecha. */
+   Sin grabaciones: ambiente tranquilo y enigmático en re lidio, con pads cálidos
+   y notas de cristal con eco. Empieza con la primera interacción del visitante
+   (norma de los navegadores) y se silencia con el botón de la esquina superior derecha. */
 (function () {
   'use strict';
   var AC = window.AudioContext || window.webkitAudioContext;
@@ -9,14 +9,16 @@
   function createEngine(ctx) {
     var mtof = function (m) { return 440 * Math.pow(2, (m - 69) / 12); };
     var rnd = function (a, b) { return a + Math.random() * (b - a); };
+    var pick = function (arr) { return arr[Math.floor(Math.random() * arr.length)]; };
 
     var master = ctx.createGain(); master.gain.value = 0;
+    var soft = ctx.createBiquadFilter(); soft.type = 'lowpass'; soft.frequency.value = 5000; soft.Q.value = 0.4;
     var comp = ctx.createDynamicsCompressor();
-    comp.threshold.value = -20; comp.knee.value = 12; comp.ratio.value = 3;
-    comp.attack.value = 0.05; comp.release.value = 0.5;
-    master.connect(comp); comp.connect(ctx.destination);
+    comp.threshold.value = -22; comp.knee.value = 14; comp.ratio.value = 2.5;
+    comp.attack.value = 0.08; comp.release.value = 0.6;
+    master.connect(soft); soft.connect(comp); comp.connect(ctx.destination);
 
-    // Reverberación de nave de piedra: respuesta de ruido con caída exponencial.
+    // Espacio amplio y suave: reverberación larga de caída tersa.
     function impulse(sec, decay) {
       var rate = ctx.sampleRate, len = Math.floor(rate * sec), b = ctx.createBuffer(2, len, rate);
       for (var c = 0; c < 2; c++) {
@@ -25,91 +27,95 @@
       }
       return b;
     }
-    var dry = ctx.createGain(); dry.gain.value = 0.55; dry.connect(master);
-    var rev = ctx.createConvolver(); rev.buffer = impulse(5.5, 2.6);
-    var wet = ctx.createGain(); wet.gain.value = 0.9; rev.connect(wet); wet.connect(master);
+    var dry = ctx.createGain(); dry.gain.value = 0.6; dry.connect(master);
+    var rev = ctx.createConvolver(); rev.buffer = impulse(6, 3.2);
+    var revTone = ctx.createBiquadFilter(); revTone.type = 'lowpass'; revTone.frequency.value = 3200;
+    var wet = ctx.createGain(); wet.gain.value = 0.75;
+    rev.connect(revTone); revTone.connect(wet); wet.connect(master);
     function send(node, amount) {
       node.connect(dry);
       var s = ctx.createGain(); s.gain.value = amount; node.connect(s); s.connect(rev);
     }
-    function lfo(freq, depth, param) {
-      var o = ctx.createOscillator(), g = ctx.createGain();
-      o.frequency.value = freq; g.gain.value = depth; o.connect(g); g.connect(param); o.start();
-    }
 
-    // Bordón: re grave, re y la, con una respiración muy lenta.
-    (function () {
-      var f = ctx.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = 380; f.Q.value = 0.5;
-      var g = ctx.createGain(); g.gain.value = 0.13;
-      [[38, 'sine', 0.5, 0], [50, 'sine', 0.55, 0], [50, 'triangle', 0.3, 4], [57, 'sine', 0.35, -3]].forEach(function (v) {
-        var o = ctx.createOscillator(), og = ctx.createGain();
-        o.type = v[1]; o.frequency.value = mtof(v[0]); o.detune.value = v[3];
-        og.gain.value = v[2]; o.connect(og); og.connect(f); o.start();
-      });
-      lfo(0.043, 0.06, g.gain);
-      lfo(0.017, 140, f.frequency);
-      f.connect(g); send(g, 0.45);
-    })();
+    // Eco lejano para las notas de cristal.
+    var echoIn = ctx.createGain(), delay = ctx.createDelay(2), fb = ctx.createGain(), echoTone = ctx.createBiquadFilter();
+    delay.delayTime.value = 0.72; fb.gain.value = 0.38;
+    echoTone.type = 'lowpass'; echoTone.frequency.value = 2200;
+    echoIn.connect(delay); delay.connect(echoTone); echoTone.connect(fb); fb.connect(delay);
+    var echoOut = ctx.createGain(); echoOut.gain.value = 0.5; echoTone.connect(echoOut); send(echoOut, 0.8);
 
-    // Coro lejano: acordes modales (re dórico) con vocal «a».
+    // Re lidio: acordes abiertos y consonantes; el sol sostenido da el aire enigmático.
     var CHORDS = [
-      [50, 57, 62, 65, 69, 76],  // re menor con novena
-      [46, 58, 62, 65, 69, 74],  // si bemol con séptima mayor
-      [43, 55, 62, 65, 70, 74],  // sol menor con séptima
-      [45, 57, 62, 64, 69, 76]   // la suspendido
+      { bass: 38, pad: [50, 57, 64, 66, 73], mel: [66, 69, 71, 73, 76, 78] },  // re maj9
+      { bass: 38, pad: [50, 59, 64, 68, 71], mel: [64, 68, 71, 73, 76, 80] },  // mi sobre re (lidio)
+      { bass: 35, pad: [47, 54, 62, 66, 73], mel: [66, 69, 71, 73, 74, 78] },  // si menor 9
+      { bass: 43, pad: [50, 59, 66, 69, 73], mel: [66, 69, 71, 73, 74, 78] }   // sol maj9 (#11)
     ];
-    function chord(notes, t, dur) {
-      var lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.Q.value = 0.7;
-      lp.frequency.setValueAtTime(1300, t);
-      lp.frequency.linearRampToValueAtTime(2600, t + dur * 0.5);
-      lp.frequency.linearRampToValueAtTime(1400, t + dur);
-      var f1 = ctx.createBiquadFilter(); f1.type = 'peaking'; f1.frequency.value = 800; f1.Q.value = 2; f1.gain.value = 8;
-      var f2 = ctx.createBiquadFilter(); f2.type = 'peaking'; f2.frequency.value = 1200; f2.Q.value = 2.5; f2.gain.value = 6;
-      var g = ctx.createGain(), peak = 0.022;
+    var STEP = 18, OVERLAP = 7, t0 = 0;
+
+    function pad(c, t, dur) {
+      var lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.Q.value = 0.5;
+      lp.frequency.setValueAtTime(900, t);
+      lp.frequency.linearRampToValueAtTime(1900, t + dur * 0.55);
+      lp.frequency.linearRampToValueAtTime(1100, t + dur);
+      var g = ctx.createGain(), peak = 0.06;
       g.gain.setValueAtTime(0.0001, t);
       g.gain.linearRampToValueAtTime(peak, t + 7);
       g.gain.setValueAtTime(peak, t + dur - 8);
       g.gain.linearRampToValueAtTime(0.0001, t + dur);
-      notes.forEach(function (m) {
-        [-8, 8].forEach(function (c) {
-          var o = ctx.createOscillator();
-          o.type = 'sawtooth'; o.frequency.value = mtof(m); o.detune.value = c + rnd(-3, 3);
-          o.connect(lp); o.start(t); o.stop(t + dur + 0.1);
+      c.pad.forEach(function (m) {
+        [['sine', -5, 1], ['triangle', 5, 0.55]].forEach(function (v) {
+          var o = ctx.createOscillator(), og = ctx.createGain();
+          o.type = v[0]; o.frequency.value = mtof(m); o.detune.value = v[1] + rnd(-2, 2);
+          og.gain.value = v[2]; o.connect(og); og.connect(lp); o.start(t); o.stop(t + dur + 0.1);
         });
       });
-      lp.connect(f1); f1.connect(f2); f2.connect(g); send(g, 0.75);
+      var b = ctx.createOscillator(), bg = ctx.createGain();
+      b.type = 'sine'; b.frequency.value = mtof(c.bass); bg.gain.value = 1.3;
+      b.connect(bg); bg.connect(lp); b.start(t); b.stop(t + dur + 0.1);
+      // brillo muy tenue una octava arriba que aparece y se va
+      var sh = ctx.createOscillator(), sg = ctx.createGain();
+      sh.type = 'sine'; sh.frequency.value = mtof(c.pad[c.pad.length - 1] + 12);
+      sg.gain.setValueAtTime(0.0001, t); sg.gain.linearRampToValueAtTime(0.12, t + dur * 0.5); sg.gain.linearRampToValueAtTime(0.0001, t + dur);
+      sh.connect(sg); sg.connect(g); sh.start(t); sh.stop(t + dur + 0.1);
+      lp.connect(g); send(g, 0.55);
     }
 
-    // Campana de claustro: parciales inarmónicos y caída larga.
-    var BELL = [69, 74, 77, 79, 81, 86];
-    function bell(m, t, v) {
-      var f0 = mtof(m);
-      [[1, 1, 6], [2, 0.3, 3.5], [2.76, 0.2, 2.5], [5.4, 0.07, 1.2]].forEach(function (p) {
-        var o = ctx.createOscillator(), g = ctx.createGain();
-        o.type = 'sine'; o.frequency.value = f0 * p[0];
-        g.gain.setValueAtTime(0.0001, t);
-        g.gain.exponentialRampToValueAtTime(v * p[1], t + 0.015);
-        g.gain.exponentialRampToValueAtTime(0.0001, t + p[2]);
-        o.connect(g); send(g, 0.9); o.start(t); o.stop(t + p[2] + 0.05);
+    function glass(m, t, v) {
+      var f = mtof(m), g = ctx.createGain();
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(v, t + 0.05);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 3.6);
+      [[1, 1], [2, 0.12], [3, 0.05], [4, 0.03]].forEach(function (p) {
+        var o = ctx.createOscillator(), og = ctx.createGain();
+        o.type = 'sine'; o.frequency.value = f * p[0]; og.gain.value = p[1];
+        o.connect(og); og.connect(g); o.start(t); o.stop(t + 3.7);
       });
+      g.connect(echoIn); send(g, 0.6);
     }
 
-    var STEP = 18, OVERLAP = 5, ci = 0, nextChord = 0, nextBell = 0;
+    var ci = 0, nextChord = 0, nextNote = 0;
+    function chordAt(t) {
+      var k = Math.floor((t - t0) / STEP);
+      return CHORDS[((k % CHORDS.length) + CHORDS.length) % CHORDS.length];
+    }
     function schedule(until) {
       while (nextChord < until) {
-        chord(CHORDS[ci % CHORDS.length], nextChord, STEP + OVERLAP);
+        pad(CHORDS[ci % CHORDS.length], nextChord, STEP + OVERLAP);
         ci++; nextChord += STEP;
       }
-      while (nextBell < until) {
-        var k = Math.floor(Math.random() * BELL.length);
-        bell(BELL[k], nextBell, rnd(0.03, 0.05));
-        if (Math.random() < 0.3 && k > 1) bell(BELL[k - 2], nextBell + rnd(1.2, 2.2), rnd(0.02, 0.032));
-        nextBell += rnd(6, 13);
+      while (nextNote < until) {
+        var c = chordAt(nextNote), m = pick(c.mel), n = Math.random() < 0.35 ? (Math.random() < 0.5 ? 2 : 3) : 1;
+        for (var i = 0; i < n; i++) {
+          glass(m, nextNote + i * rnd(0.7, 1.1), rnd(0.03, 0.045) * (1 - i * 0.2));
+          var idx = c.mel.indexOf(m); m = c.mel[Math.max(0, idx - 1 - Math.floor(Math.random() * 2))];
+        }
+        nextNote += rnd(4, 9);
       }
     }
     function begin() {
       var t = ctx.currentTime;
-      nextChord = t + 0.1; nextBell = t + rnd(4, 7);
+      t0 = t + 0.1; nextChord = t0; nextNote = t + rnd(5, 8);
       schedule(t + 10);
     }
     function fadeTo(v, sec) {
@@ -122,7 +128,7 @@
   if (window.__ossMusicaTest) { window.__ossMusicaTest = createEngine; return; }
   if (!AC) return;
 
-  var KEY = 'oss-musica', VOL = 0.8;
+  var KEY = 'oss-musica', VOL = 0.65;
   var T = {
     es: ['Silenciar la música', 'Activar la música'],
     en: ['Mute the music', 'Play the music'],
