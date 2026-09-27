@@ -143,14 +143,3 @@ document.querySelectorAll('.gal').forEach(gal => {
   } else { near = true; }
   update();
 });
-
-// vista de calle: se carga cuando el visitante se acerca a ella (no durante la carga inicial)
-document.querySelectorAll('iframe[data-src]').forEach(frame => {
-  const load = () => { if (!frame.getAttribute('src')) frame.src = frame.dataset.src; };
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver(entries => {
-      if (entries.some(e => e.isIntersecting)) { load(); io.disconnect(); }
-    }, { rootMargin: '400px 0px' });
-    io.observe(frame);
-  } else { load(); }
-});
