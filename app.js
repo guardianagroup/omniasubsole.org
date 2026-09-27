@@ -3,11 +3,11 @@
 const root = document.documentElement;
 const LABELS = {
   "es": [
-    "Solicitud del dossier informativo · Omnia Sub Sole",
+    "Solicitud del dosier informativo · Omnia Sub Sole",
     "Nombre y apellidos",
     "Correo electrónico",
     "Ciudad y país",
-    "Idioma del dossier",
+    "Idioma del dosier",
     "Ámbito de interés",
     "Observaciones"
   ],
