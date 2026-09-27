@@ -64,7 +64,7 @@ p:last-child{margin-bottom:0}
 .principle .eyebrow{font-size:.875rem}
 .principle p{font-size:1.07rem;line-height:1.6}
 :lang(zh) .principle p,:lang(ar) .principle p{line-height:1.85}
-.sede{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;margin-top:2rem}
+.sede{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:start;margin-top:2rem}
 .address{font-style:normal;color:var(--muted);margin:.75rem 0 1rem;line-height:1.5}
 .location-block+.location-block{border-top:1px solid var(--line);margin-top:1.7rem;padding-top:1.7rem}
 figure{margin:0}
