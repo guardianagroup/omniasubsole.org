@@ -18,7 +18,7 @@
   const status = dialog.querySelector('.dl-status');
   links.forEach(link => link.addEventListener('click', () => {
     links.forEach(other => other.classList.toggle('chosen', other === link));
-    if (status) { status.textContent = `${status.dataset.msg} ${link.textContent.trim()}`; status.hidden = false; }
+    if (status) { status.textContent = `${status.dataset.msg} ${(link.querySelector('b') || link).textContent.trim()}`; status.hidden = false; }
   }));
   dialog.addEventListener('close', () => {
     links.forEach(link => link.classList.remove('chosen'));

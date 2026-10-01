@@ -214,7 +214,9 @@ html{caret-color:transparent}input,textarea,select,[contenteditable]{caret-color
 .lang-list a{display:block;border:1px solid var(--line);border-radius:3px;background:var(--bg);padding:.75rem 1rem;text-decoration:none;font-weight:600;text-align:center;line-height:1.4}
 .lang-list a:hover{border-color:var(--ink)}
 .lang-list a.chosen{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);background:var(--surface);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px}
-.lang-list a.chosen::after{content:" \2713";color:var(--accent-ink)}
+.lang-list a b{display:block;font-weight:600}
+.lang-list a span{display:block;font-weight:400;font-size:.85rem;color:var(--muted);margin-top:.1rem}
+.lang-list a.chosen b::after{content:" \2713";color:var(--accent-ink)}
 .dl-status{margin:1rem 0 0;font-weight:600;color:var(--accent-ink)}
 .dlg-body .note{margin:1rem 0 0}
 html:lang(ar) .lang-list{direction:ltr}
@@ -255,7 +257,7 @@ main>footer{border-top:1px solid var(--line)}
 .elige .lang-list{max-width:30rem;margin:0 auto}
 @media(max-width:520px){.carta{padding:2rem 0 2.6rem}.carta .epi{font-size:1.15rem}.carta-acciones{flex-direction:column;gap:.9rem}}
 </style>
-<script src="/app.js?v=4" defer></script>
+<script src="/app.js?v=5" defer></script>
 <script src="/cursor.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","@id":"https://omniasubsole.org/carta/ru/#carta","headline":"Письмо человечеству","alternativeHeadline":"Остановись на пять минут","description":"Остановись на пять минут. «Мы не хотим уйти из этого мира, не попытавшись.»","inLanguage":"ru","url":"https://omniasubsole.org/carta/ru/","mainEntityOfPage":"https://omniasubsole.org/carta/ru/","author":{"@type":"Person","name":"Francisco Salvatierra Sánchez","jobTitle":"Основатель благотворительного фонда Omnia Sub Sole"},"publisher":{"@id":"https://omniasubsole.org/#organization"},"isPartOf":{"@id":"https://omniasubsole.org/#website"},"image":"https://omniasubsole.org/og-omnia-sub-sole-arena.jpg","datePublished":"2026-10-01","dateModified":"2026-10-01"}</script>
 </head>
@@ -366,7 +368,7 @@ main>footer{border-top:1px solid var(--line)}
   <p>Быть может, именно с этого всё и начнётся.</p>
   <p class="firma"><b lang="es">Francisco Salvatierra Sánchez</b><span>Основатель благотворительного фонда Omnia Sub Sole</span></p>
  </div>
- <p class="carta-acciones"><a class="btn" href="/carta/OmniaSubSole_Carta_RU.pdf" download type="application/pdf">Скачать в PDF</a><a class="text-link" href="/ru/">Вернуться на страницу Фонда</a></p>
+ <p class="carta-acciones"><a class="btn" href="/carta/OmniaSubSole_Carta_RU.pdf" download="Omnia Sub Sole - Письмо человечеству.pdf" type="application/pdf">Скачать в PDF</a><a class="text-link" href="/ru/">Вернуться на страницу Фонда</a></p>
 </article>
 <footer><div class="footer-grid"><div><p class="name" lang="la"><a href="#inicio" aria-label="Omnia Sub Sole · Вернуться к началу">Omnia Sub Sole</a></p><p>Некоммерческий благотворительный фонд, находящийся в процессе учреждения.</p><p class="latin" lang="la">Individui pro veritate</p></div><p class="footer-location">Картахена-де-Индиас<br>Республика Колумбия<br><a href="mailto:contact@omniasubsole.org?subject=%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%B8%20%C2%B7%20Omnia%20Sub%20Sole&amp;body=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%0A%0A%D0%9F%D1%80%D0%BE%D1%88%D1%83%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8E%20%D0%BE%20%D0%A4%D0%BE%D0%BD%D0%B4%D0%B5%20Omnia%20Sub%20Sole.%0A%0A%D0%98%D0%BC%D1%8F%20%D0%B8%20%D1%84%D0%B0%D0%BC%D0%B8%D0%BB%D0%B8%D1%8F%3A%20%0A%D0%93%D0%BE%D1%80%D0%BE%D0%B4%20%D0%B8%20%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B0%3A%20%0A%D0%9E%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%3A%20%0A%0A%D0%91%D0%BB%D0%B0%D0%B3%D0%BE%D0%B4%D0%B0%D1%80%D1%8E." dir="ltr">contact@omniasubsole.org</a><br><a href="https://wa.me/34621024973?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9F%D1%80%D0%BE%D1%88%D1%83%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8E%20%D0%BE%20%D0%A4%D0%BE%D0%BD%D0%B4%D0%B5%20Omnia%20Sub%20Sole." target="_blank" rel="noopener noreferrer">WhatsApp <bdi dir="ltr">+34 621 024 973</bdi></a></p></div></footer>
 </main>

@@ -214,7 +214,9 @@ html{caret-color:transparent}input,textarea,select,[contenteditable]{caret-color
 .lang-list a{display:block;border:1px solid var(--line);border-radius:3px;background:var(--bg);padding:.75rem 1rem;text-decoration:none;font-weight:600;text-align:center;line-height:1.4}
 .lang-list a:hover{border-color:var(--ink)}
 .lang-list a.chosen{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);background:var(--surface);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px}
-.lang-list a.chosen::after{content:" \2713";color:var(--accent-ink)}
+.lang-list a b{display:block;font-weight:600}
+.lang-list a span{display:block;font-weight:400;font-size:.85rem;color:var(--muted);margin-top:.1rem}
+.lang-list a.chosen b::after{content:" \2713";color:var(--accent-ink)}
 .dl-status{margin:1rem 0 0;font-weight:600;color:var(--accent-ink)}
 .dlg-body .note{margin:1rem 0 0}
 html:lang(ar) .lang-list{direction:ltr}
@@ -255,7 +257,7 @@ main>footer{border-top:1px solid var(--line)}
 .elige .lang-list{max-width:30rem;margin:0 auto}
 @media(max-width:520px){.carta{padding:2rem 0 2.6rem}.carta .epi{font-size:1.15rem}.carta-acciones{flex-direction:column;gap:.9rem}}
 </style>
-<script src="/app.js?v=4" defer></script>
+<script src="/app.js?v=5" defer></script>
 <script src="/cursor.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","@id":"https://omniasubsole.org/carta/zh/#carta","headline":"致人类书","alternativeHeadline":"请停下五分钟","description":"请停下五分钟. “我们不愿未曾一试，便离开这个世界。”","inLanguage":"zh-Hans","url":"https://omniasubsole.org/carta/zh/","mainEntityOfPage":"https://omniasubsole.org/carta/zh/","author":{"@type":"Person","name":"Francisco Salvatierra Sánchez","jobTitle":"Omnia Sub Sole 慈善基金会创始人"},"publisher":{"@id":"https://omniasubsole.org/#organization"},"isPartOf":{"@id":"https://omniasubsole.org/#website"},"image":"https://omniasubsole.org/og-omnia-sub-sole-arena.jpg","datePublished":"2026-10-01","dateModified":"2026-10-01"}</script>
 </head>
@@ -366,7 +368,7 @@ main>footer{border-top:1px solid var(--line)}
   <p>也许，一切就从这里开始。</p>
   <p class="firma"><b lang="es">Francisco Salvatierra Sánchez</b><span>Omnia Sub Sole 慈善基金会创始人</span></p>
  </div>
- <p class="carta-acciones"><a class="btn" href="/carta/OmniaSubSole_Carta_ZH.pdf" download type="application/pdf">下载 PDF</a><a class="text-link" href="/zh/">返回基金会主页</a></p>
+ <p class="carta-acciones"><a class="btn" href="/carta/OmniaSubSole_Carta_ZH.pdf" download="Omnia Sub Sole - 致人类书.pdf" type="application/pdf">下载 PDF</a><a class="text-link" href="/zh/">返回基金会主页</a></p>
 </article>
 <footer><div class="footer-grid"><div><p class="name" lang="la"><a href="#inicio" aria-label="Omnia Sub Sole · 返回页首">Omnia Sub Sole</a></p><p>非营利慈善基金会，现正筹备设立。</p><p class="latin" lang="la">Individui pro veritate</p></div><p class="footer-location">卡塔赫纳<br>哥伦比亚共和国<br><a href="mailto:contact@omniasubsole.org?subject=%E5%92%A8%E8%AF%A2%20%C2%B7%20Omnia%20Sub%20Sole&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%9A%0A%0A%E6%88%91%E5%B8%8C%E6%9C%9B%E4%BA%86%E8%A7%A3%20Omnia%20Sub%20Sole%20%E5%9F%BA%E9%87%91%E4%BC%9A%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF%E3%80%82%0A%0A%E5%A7%93%E5%90%8D%EF%BC%9A%0A%E5%9F%8E%E5%B8%82%E5%8F%8A%E5%9B%BD%E5%AE%B6%EF%BC%9A%0A%E5%85%B3%E6%B3%A8%E9%A2%86%E5%9F%9F%EF%BC%9A%0A%0A%E8%B0%A2%E8%B0%A2%E3%80%82" dir="ltr">contact@omniasubsole.org</a><br><a href="https://wa.me/34621024973?text=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E5%B8%8C%E6%9C%9B%E4%BA%86%E8%A7%A3%20Omnia%20Sub%20Sole%20%E5%9F%BA%E9%87%91%E4%BC%9A%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF%E3%80%82" target="_blank" rel="noopener noreferrer">WhatsApp <bdi dir="ltr">+34 621 024 973</bdi></a></p></div></footer>
 </main>
