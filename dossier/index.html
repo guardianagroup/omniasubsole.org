@@ -191,8 +191,10 @@ html{caret-color:transparent}input,textarea,select,[contenteditable]{caret-color
 /* ventanas de idioma: dosier (descarga directa) y carta del fundador */
 .dlg-body{padding:.5rem 1.7rem 1.7rem}
 .dlg-body .intro{color:var(--muted);font-size:1rem;margin:0 0 1.2rem}
-.lang-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
-.lang-list a{display:block;border:1px solid var(--line);border-radius:3px;background:var(--bg);padding:.75rem 1rem;text-decoration:none;font-weight:600;text-align:center;line-height:1.4}
+.lang-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:.6rem}
+.lang-list li{display:flex;min-width:0}
+.lang-list a{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;border:1px solid var(--line);border-radius:3px;background:var(--bg);padding:.7rem .6rem;text-decoration:none;font-weight:600;text-align:center;line-height:1.35}
+.dlg-head h2:focus{outline:none}
 .lang-list a:hover{border-color:var(--ink)}
 .lang-list a.chosen{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);background:var(--surface);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px}
 .lang-list a b{display:block;font-weight:600}
