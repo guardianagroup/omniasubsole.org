@@ -213,13 +213,20 @@ html{caret-color:transparent}input,textarea,select,[contenteditable]{caret-color
 .lang-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
 .lang-list a{display:block;border:1px solid var(--line);border-radius:3px;background:var(--bg);padding:.75rem 1rem;text-decoration:none;font-weight:600;text-align:center;line-height:1.4}
 .lang-list a:hover{border-color:var(--ink)}
-.lang-list a[aria-current="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.lang-list a.chosen{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);background:var(--surface);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px}
+.lang-list a.chosen::after{content:" \2713";color:var(--accent-ink)}
+.dl-status{margin:1rem 0 0;font-weight:600;color:var(--accent-ink)}
 .dlg-body .note{margin:1rem 0 0}
 html:lang(ar) .lang-list{direction:ltr}
 @media(max-width:520px){.dlg-body{padding:.5rem 1.2rem 1.3rem}}
 
 /* carta del fundador */
-.carta{max-width:44rem;margin:0 auto;padding:2.6rem 0 3.4rem}
+.volver{margin:1.3rem 0 0;font-size:.95rem}
+.volver a{display:inline-flex;align-items:center;gap:.45rem;text-decoration:none;color:var(--muted);border-bottom:1px solid var(--line);padding:.15rem 0}
+.volver a:hover{color:var(--ink);border-bottom-color:var(--accent)}
+.carta{max-width:44rem;margin:0 auto;padding:1.6rem 0 3.4rem}
+.carta-head .emblema{display:block;width:150px;margin:0 auto 1.4rem}
+.carta-head .emblema .map{width:100%;margin:0}
 .carta-head{text-align:center;padding-bottom:2.2rem;margin-bottom:2.4rem;border-bottom:1px solid var(--line)}
 .carta-head .map{width:150px;margin:0 auto 1.4rem;display:block}
 .carta h1{font-family:var(--inscr);font-weight:600;font-size:clamp(2rem,5.5vw,3rem);line-height:1.15;letter-spacing:.05em;margin:0 0 .6rem}
@@ -248,14 +255,17 @@ main>footer{border-top:1px solid var(--line)}
 .elige .lang-list{max-width:30rem;margin:0 auto}
 @media(max-width:520px){.carta{padding:2rem 0 2.6rem}.carta .epi{font-size:1.15rem}.carta-acciones{flex-direction:column;gap:.9rem}}
 </style>
+<script src="/app.js?v=4" defer></script>
 <script src="/cursor.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","@id":"https://omniasubsole.org/carta/ja/#carta","headline":"人類への手紙","alternativeHeadline":"五分間、立ち止まってください","description":"五分間、立ち止まってください. 「試みることもなく、この世を去りたくはありません。」","inLanguage":"ja","url":"https://omniasubsole.org/carta/ja/","mainEntityOfPage":"https://omniasubsole.org/carta/ja/","author":{"@type":"Person","name":"Francisco Salvatierra Sánchez","jobTitle":"慈善財団 Omnia Sub Sole 創設者"},"publisher":{"@id":"https://omniasubsole.org/#organization"},"isPartOf":{"@id":"https://omniasubsole.org/#website"},"image":"https://omniasubsole.org/og-omnia-sub-sole-arena.jpg","datePublished":"2026-10-01","dateModified":"2026-10-01"}</script>
 </head>
 <body id="inicio">
 <header class="topbar"><div class="inner"><nav class="lang" dir="ltr" aria-label="言語"><a href="/carta/es/" lang="es" hreflang="es" aria-label="Español">ES</a><span class="sep" aria-hidden="true">·</span><a href="/carta/en/" lang="en" hreflang="en" aria-label="English">EN</a><span class="sep" aria-hidden="true">·</span><a href="/carta/pt/" lang="pt" hreflang="pt" aria-label="Português">PT</a><span class="sep" aria-hidden="true">·</span><a href="/carta/de/" lang="de" hreflang="de" aria-label="Deutsch">DE</a><span class="sep" aria-hidden="true">·</span><a href="/carta/ru/" lang="ru" hreflang="ru" aria-label="Русский">RU</a><span class="sep" aria-hidden="true">·</span><a href="/carta/zh/" lang="zh-Hans" hreflang="zh-Hans" aria-label="简体中文">中文</a><span class="sep" aria-hidden="true">·</span><a href="/carta/ja/" lang="ja" hreflang="ja" aria-label="日本語" aria-current="page">日本語</a><span class="sep" aria-hidden="true">·</span><a href="/carta/ar/" lang="ar" hreflang="ar" dir="rtl" aria-label="العربية">العربية</a></nav></div></header>
 <main class="wrap" id="contenido">
+<p class="volver"><a href="/ja/"><span aria-hidden="true">←</span>財団のページへ戻る</a></p>
 <article class="carta">
  <header class="carta-head">
-  <svg class="map" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
+  <a class="emblema" href="/ja/" aria-label="Omnia Sub Sole · 財団のページへ戻る"><svg class="map" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
   <g fill="none" stroke="currentColor">
     <circle cx="200" cy="200" r="190" stroke-width="1.6"/>
     <circle cx="200" cy="200" r="31.7" stroke-width=".6" opacity=".55"/>
@@ -273,7 +283,7 @@ main>footer{border-top:1px solid var(--line)}
     <text x="104" y="244" font-size="13" fill="currentColor" text-anchor="middle">Cartagena</text>
   </g>
   <text class="ringlabel" x="200" y="108" font-size="12" fill="var(--accent)" text-anchor="middle">10° N</text>
-</svg>
+</svg></a>
   <p class="eyebrow">創設者からの手紙</p>
   <h1>人類への手紙</h1>
   <p class="motto">五分間、立ち止まってください</p>

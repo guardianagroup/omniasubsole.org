@@ -13,8 +13,33 @@
   });
   dialog.querySelectorAll('[data-close]').forEach(button => button.addEventListener('click', () => dialog.close()));
   dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
-  dialog.querySelectorAll('a[download]').forEach(link => link.addEventListener('click', () => setTimeout(() => dialog.close(), 600)));
+  // el idioma elegido queda marcado y, en la descarga, confirmado con una línea de texto
+  const links = [...dialog.querySelectorAll('.lang-list a')];
+  const status = dialog.querySelector('.dl-status');
+  links.forEach(link => link.addEventListener('click', () => {
+    links.forEach(other => other.classList.toggle('chosen', other === link));
+    if (status) { status.textContent = `${status.dataset.msg} ${link.textContent.trim()}`; status.hidden = false; }
+  }));
+  dialog.addEventListener('close', () => {
+    links.forEach(link => link.classList.remove('chosen'));
+    if (status) { status.hidden = true; status.textContent = ''; }
+  });
 });
+
+// enlaces internos de la página («Estudios a realizar», volver arriba): desplazan sin dejar «#…» en la dirección
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', event => {
+    const target = document.getElementById(link.getAttribute('href').slice(1));
+    if (!target) return;
+    event.preventDefault();
+    target.scrollIntoView();
+    if (link.classList.contains('skip-link')) { target.setAttribute('tabindex', '-1'); target.focus({ preventScroll: true }); }
+  });
+});
+// quien llega con una dirección antigua terminada en «#…» ve la sección y la dirección queda limpia
+if (location.hash && document.getElementById(location.hash.slice(1))) {
+  window.addEventListener('load', () => history.replaceState(null, '', location.pathname + location.search));
+}
 
 // pase de fotografías de la sede: flechas y teclado sobre el desplazamiento nativo
 document.querySelectorAll('.gal').forEach(gal => {
