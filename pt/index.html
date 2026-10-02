@@ -203,6 +203,7 @@ footer .latin{font-style:italic;color:var(--accent-ink);margin-top:.6rem}
 footer .footer-location{text-align:end}
 .cta{text-align:center;padding:3.6rem 0}
 .cta .eyebrow{margin-bottom:.8rem}
+.video-cta video{display:block;margin:0 auto;width:min(100%,300px);height:auto;aspect-ratio:9/16;background:var(--ink);border:1px solid var(--line);border-radius:3px}
 .cta-text{max-width:38rem;margin:0 auto 1.5rem;font-size:1.15rem;line-height:1.6}
 dialog.dossier{border:1px solid var(--line);border-radius:4px;background:var(--surface);color:var(--ink);padding:0;width:min(40rem,calc(100vw - 1.5rem));max-height:calc(100dvh - 1.5rem);overflow:auto;box-shadow:0 20px 60px rgba(30,43,56,.3)}
 dialog.dossier::backdrop{background:rgba(30,43,56,.55)}
@@ -280,6 +281,10 @@ html:lang(ar) .lang-list{direction:ltr}
   </g>
 </svg>
 </header>
+<section id="video" class="cta video-cta" aria-labelledby="video-heading">
+ <p class="eyebrow" id="video-heading">Apresentação em vídeo</p>
+ <video controls playsinline preload="none" poster="/video/omnia-sub-sole-video.jpg" width="1080" height="1920" aria-label="Apresentação em vídeo da Fundação Omnia Sub Sole, quarenta e cinco segundos"><source src="/video/OmniaSubSole_Video.mp4" type="video/mp4"></video>
+</section>
 <section id="proposito" aria-labelledby="purpose-heading">
  <p class="eyebrow">Fins fundacionais</p>
  <h2 id="purpose-heading">Do nosso propósito</h2>
