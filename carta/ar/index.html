@@ -89,9 +89,8 @@ img,svg{max-width:100%}
 .text-link{font-weight:500}
 .map{width:100%;aspect-ratio:1;color:var(--map);overflow:visible}
 .map text{font-family:var(--serif)}
-.map .ringlabel{font-family:var(--inscr)}
-.map .ring10{stroke:var(--accent)}
-@media(prefers-reduced-motion:no-preference){.map .ring10{stroke-dasharray:531;stroke-dashoffset:531;animation:draw 2.4s .4s ease-out forwards}.map .pin,.map .ringlabel{opacity:0;animation:fade .6s 2.6s forwards}}
+.map .anillo{stroke:var(--accent)}
+@media(prefers-reduced-motion:no-preference){.map .anillo{stroke-dasharray:531;stroke-dashoffset:531;animation:draw 2.4s .4s ease-out forwards}.map .pin{opacity:0;animation:fade .6s 2.6s forwards}}
 @keyframes draw{to{stroke-dashoffset:0}}
 @keyframes fade{to{opacity:1}}
 section{padding:4rem 0;border-bottom:1px solid var(--line)}
@@ -281,15 +280,14 @@ main>footer{border-top:1px solid var(--line)}
     <circle cx="200" cy="200" r="126.7" stroke-width=".6" opacity=".55"/>
     <circle cx="200" cy="200" r="158.3" stroke-width=".6" opacity=".55"/>
     <g stroke-width=".5" opacity=".45"><line x1="200" y1="200" x2="200.0" y2="390.0"/><line x1="200" y1="200" x2="249.2" y2="383.5"/><line x1="200" y1="200" x2="295.0" y2="364.5"/><line x1="200" y1="200" x2="334.4" y2="334.4"/><line x1="200" y1="200" x2="364.5" y2="295.0"/><line x1="200" y1="200" x2="383.5" y2="249.2"/><line x1="200" y1="200" x2="390.0" y2="200.0"/><line x1="200" y1="200" x2="383.5" y2="150.8"/><line x1="200" y1="200" x2="364.5" y2="105.0"/><line x1="200" y1="200" x2="334.4" y2="65.6"/><line x1="200" y1="200" x2="295.0" y2="35.5"/><line x1="200" y1="200" x2="249.2" y2="16.5"/><line x1="200" y1="200" x2="200.0" y2="10.0"/><line x1="200" y1="200" x2="150.8" y2="16.5"/><line x1="200" y1="200" x2="105.0" y2="35.5"/><line x1="200" y1="200" x2="65.6" y2="65.6"/><line x1="200" y1="200" x2="35.5" y2="105.0"/><line x1="200" y1="200" x2="16.5" y2="150.8"/><line x1="200" y1="200" x2="10.0" y2="200.0"/><line x1="200" y1="200" x2="16.5" y2="249.2"/><line x1="200" y1="200" x2="35.5" y2="295.0"/><line x1="200" y1="200" x2="65.6" y2="334.4"/><line x1="200" y1="200" x2="105.0" y2="364.5"/><line x1="200" y1="200" x2="150.8" y2="383.5"/></g>
-    <circle class="ring10" cx="200" cy="200" r="84.4" stroke-width="2.2"/>
+    <circle class="anillo" cx="200" cy="200" r="84.4" stroke-width="2.2"/>
   </g>
   <circle cx="200" cy="200" r="5.5" fill="var(--accent)"/><g stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round"><line x1="200.00" y1="191.00" x2="200.00" y2="183.00"/><line x1="205.29" y1="192.72" x2="209.99" y2="186.25"/><line x1="208.56" y1="197.22" x2="216.17" y2="194.75"/><line x1="208.56" y1="202.78" x2="216.17" y2="205.25"/><line x1="205.29" y1="207.28" x2="209.99" y2="213.75"/><line x1="200.00" y1="209.00" x2="200.00" y2="217.00"/><line x1="194.71" y1="207.28" x2="190.01" y2="213.75"/><line x1="191.44" y1="202.78" x2="183.83" y2="205.25"/><line x1="191.44" y1="197.22" x2="183.83" y2="194.75"/><line x1="194.71" y1="192.72" x2="190.01" y2="186.25"/></g>
   <g class="pin">
     <circle cx="118.3" cy="221.1" r="4.5" fill="var(--accent)"/>
     <circle cx="118.3" cy="221.1" r="9" fill="none" stroke="var(--accent)" stroke-width="1"/>
-    <text x="104" y="244" font-size="13" fill="currentColor" text-anchor="middle">Cartagena</text>
+    <text x="104" y="244" font-size="13" fill="currentColor" text-anchor="middle">قرطاجنة</text>
   </g>
-  <text class="ringlabel" x="200" y="108" font-size="12" fill="var(--accent)" text-anchor="middle">10° N</text>
 </svg></a>
   <p class="eyebrow">رسالة المؤسِّس</p>
   <h1>رسالة إلى الإنسانية</h1>

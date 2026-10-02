@@ -65,9 +65,8 @@ img,svg{max-width:100%}
 .text-link{font-weight:500}
 .map{width:100%;aspect-ratio:1;color:var(--map);overflow:visible}
 .map text{font-family:var(--serif)}
-.map .ringlabel{font-family:var(--inscr)}
-.map .ring10{stroke:var(--accent)}
-@media(prefers-reduced-motion:no-preference){.map .ring10{stroke-dasharray:531;stroke-dashoffset:531;animation:draw 2.4s .4s ease-out forwards}.map .pin,.map .ringlabel{opacity:0;animation:fade .6s 2.6s forwards}}
+.map .anillo{stroke:var(--accent)}
+@media(prefers-reduced-motion:no-preference){.map .anillo{stroke-dasharray:531;stroke-dashoffset:531;animation:draw 2.4s .4s ease-out forwards}.map .pin{opacity:0;animation:fade .6s 2.6s forwards}}
 @keyframes draw{to{stroke-dashoffset:0}}
 @keyframes fade{to{opacity:1}}
 section{padding:4rem 0;border-bottom:1px solid var(--line)}
